@@ -1,0 +1,74 @@
+/*! FrontEnd BRM - v0.1.0 - 2015-09-22
+* https://github.com/cortesc/HTML
+* Copyright (c) 2015 Cristian Cortés; Licensed MIT */
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a img {
+  border: 0;
+}
+body {
+  color: #434343;
+  font-size: 1.3em;
+}
+h1,
+h2,
+h3 {
+  font-family: 'Varela Round', sans-serif;
+  color: #c26907;
+}
+.btn-cargar-mas {
+  background-color: #3973bf !important;
+  color: #fff !important;
+  font-size: 1.5em;
+  display: block;
+  vertical-align: middle;
+  margin: 1em auto;
+}
+.btn-cargar-mas:hover {
+  background-color: #224573 !important;
+}
+.btn-primary {
+  background-color: #3973bf;
+}
+.btn-primary:hover {
+  background-color: #224573;
+}
+.breadcrumb li {
+  color: #fff;
+  font-family: 'Varela Round', sans-serif;
+}
+.breadcrumb li a {
+  color: #f79529;
+}
+.nav-tabs li {
+  background-color: #f79529;
+  border: none;
+  color: #fff;
+}
+.nav-tabs li.active a {
+  background-color: #f9aa54;
+  border: none;
+  color: #fff;
+}
+.nav-tabs li.active a:hover {
+  background-color: #f79529;
+}
+footer {
+  background-color: #f79529;
+  bottom: 0;
+  color: #fff;
+  position: absolute;
+  width: 100%;
+}
+.u-bg-azul {
+  background-color: #3973bf;
+  color: #fff;
+}
+.u-no-border {
+  padding: 0;
+  margin: 0;
+}
