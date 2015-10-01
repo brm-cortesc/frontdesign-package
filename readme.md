@@ -11,12 +11,12 @@ Este es un esfuerzo para que todos los diseñadores o personas que deban trabaja
 Si no tiene instaladas estas herramientas en tu equipo busca apoyo en Help Desk.
 
 ## Instalación
-1. Lo primero que debe hacer es clonar este repositorio en su equipo para poder realizar las pruebas localmente.
+- Lo primero que debe hacer es clonar este repositorio en su equipo para poder realizar las pruebas localmente.
 ```
-git clone
+git clone https://github.com/brm-cortesc/frontdesign-package.git
 ```
-2. Luego se abre la consola, se ubica la carpera donde clonó el repositorio.
-3. Se ejecuta el siguiente comando en la consola para descagar las librerías necesarias.
+- Luego se abre la consola, se ubica la carpera donde clonó el repositorio.
+- Se ejecuta el siguiente comando en la consola para descagar las librerías necesarias.
 ```
 npm install
 ```
