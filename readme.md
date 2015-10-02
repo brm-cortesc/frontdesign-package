@@ -1,4 +1,4 @@
-![Manual de supervivencia frontend en brm](http://abraham.brm.com.co/fabricaDeCajas/zip/logo-manual-frontend.jpg "Manual de supervivencia frontend en brm")
+
 
 Este es un esfuerzo para que todos los diseñadores o personas que deban trabajar proyectos con html/css usen un solo esquema de trabajo y así todos estemos en la misma página.
 
