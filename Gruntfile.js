@@ -75,7 +75,7 @@ module.exports = function(grunt) {
 		cssmin: {
 		      combine: {
 		      files: {
-		        'publication/css/<%= pkg.name %>.min.css': ['publication/css/*.*', "!publication/css/<%= pkg.name %>.min.css"]
+		        'publication/css/<%= pkg.name %>.min.css': ['publication/css/*.*', "!publication/css/<%= pkg.name %>.min.css", "!publication/css/readme.md"]
 		      }
 		    }
 		  },
