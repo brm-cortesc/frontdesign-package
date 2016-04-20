@@ -60,9 +60,17 @@ module.exports = function(grunt) {
 			},
 		},
 		stylus: {
+			map:{
+			  files: {
+					'publication/css/style.css': 'src/stylus/main.styl'
+				}
+			},
 			options:{
 				 banner: '<%= banner %>', 
 				compress: false,
+				sourcemap:{
+				           inline: true
+				}
 			},
 			/*Tarea para compilar stylus, escuchamos solo el archivo base donde se importan todas las librerias*/
 			compile: {
@@ -86,7 +94,7 @@ module.exports = function(grunt) {
 					 options: {
 							 pretty: true,
 							 data:{
-							 	debug: false //Variable para compilar html con archivos de JS y CSS comprimidos si es false exporta cada archivo, si es true exporta con el link del archivo compilado 
+							 	debug: true //Variable para compilar html con archivos de JS y CSS comprimidos si es false exporta cada archivo, si es true exporta con el link del archivo compilado 
 							 }
 					 },
 					 files: [ {
@@ -157,7 +165,7 @@ module.exports = function(grunt) {
 						'publication/images/**.*'
 						],
 
-				tasks : ["jade", "stylus:compile", "cssmin"],/*las tareas que se corren por defecto al observar cambios en los archivos*/
+				tasks : ["jade", "stylus", "cssmin"],/*las tareas que se corren por defecto al observar cambios en los archivos*/
 				task : ['shell:stats']
 			}
 		},
@@ -176,6 +184,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-shell');
 	grunt.loadNpmTasks('grunt-browser-sync');
 	grunt.loadNpmTasks('grunt-contrib-stylus');
+	grunt.loadNpmTasks('grunt-stylus-map');
 
 	// Se programan las tareas a ejecuar al momento de llamar "grunt %nombretarea%".
 	grunt.registerTask('minicss', ['cssmin','clean']);

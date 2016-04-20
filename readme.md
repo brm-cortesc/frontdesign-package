@@ -7,7 +7,7 @@ Este es un esfuerzo para que todos los diseñadores o personas que deban trabaja
 - [GruntJS](https://nodejs.org/) 0.1.13
 - Snippets brm
 - Leer [Manual Jade](https://docs.google.com/presentation/d/1C8RBX2Dlsb3UtCsBg5teX3bROmCqHlG_dKf2d6Rpvl4/)
-- Leer [Manual SMACSS](https://docs.google.com/presentation/d/1wpYDwrtWRpNgbNJtVXyclmZQ2L71cNO54Uvrs-_OQKM/)
+- Leer [Manual SMACSS](https://docs.google.com/a/brm.com.co/presentation/d/18GzVbLxmasYLi2GetJxAgoBe55L7_c0Bi1GHi6OoO0o//)
 
 Si no tiene instaladas estas herramientas en tu equipo busca apoyo en Help Desk.
 
