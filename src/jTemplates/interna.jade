@@ -3,10 +3,7 @@ extends partials/base.jade
 
 //-Etiqueta Title
 block title
-	- var seccion = "Home"
-	- var titulo = "Interna";
-
-	title Ejemplo de meta title | #{titulo}
+	title Ejemplo de meta title
 
 //-Etiqueta Metadescription
 block description
@@ -14,19 +11,16 @@ block description
 
 //-Breadcrumbs
 block migas
-	li: a(href="index.html") #{seccion}
 	li  #{titulo}
 
 block content
-
 	section.container-fluid
 		div.row
 
 			article.col-lg-10.col-md-10.col-sm-10.col-xs-12.col-lg-offset-1.col-md-offset-1.col-sm-offset-1
-				div.titularSeccion
-					h1= titulo
+				h1 Titulo 2
 
-					h4 hola que hace
+				h4 hola que hace
 
 
 				p.
@@ -38,5 +32,5 @@ block content
 	
 
 block Scripts
-	script(src='https://apis.google.com/js/platform.js')
+	//-Acá se ponen js que solo vayan en ésta página
 
