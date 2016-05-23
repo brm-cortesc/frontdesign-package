@@ -1,6 +1,6 @@
 {
   "name": "Frontend-brm",
-  "version": "0.2.0",
+  "version": "0.2.",
   "engines": {
     "node": ">= 0.10.0"
   },
@@ -13,7 +13,7 @@
     "grunt-contrib-clean": "~0.4.0",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-cssmin": "^0.10.0",
-    "grunt-contrib-jade": "^0.14.0",
+    "grunt-contrib-jade": "^0.15.0",
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-qunit": "~0.2.0",
     "grunt-contrib-stylus": "^1.2.0",
