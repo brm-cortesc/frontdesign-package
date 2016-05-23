@@ -4,7 +4,7 @@ Este es un esfuerzo para que todos los diseñadores o personas que deban trabaja
 
 ## Pre requisitos
 - [NodeJS](https://nodejs.org/) 0.10.*
-- [GruntJS](https://nodejs.org/) 0.1.13
+- [GruntJS](http://gruntjs.com/) 0.1.13
 - Snippets brm
 - Leer [Manual Jade](https://docs.google.com/a/brm.com.co/presentation/d/18GzVbLxmasYLi2GetJxAgoBe55L7_c0Bi1GHi6OoO0o/)
 - Leer [Manual SMACSS](https://docs.google.com/a/brm.com.co/presentation/d/18GzVbLxmasYLi2GetJxAgoBe55L7_c0Bi1GHi6OoO0o/)
