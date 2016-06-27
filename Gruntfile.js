@@ -2,6 +2,9 @@
 /*Indica a grunt que es un archivo que contiene tareas a ejecutar*/
 module.exports = function(grunt) {
 
+	var debug;
+	 debug = !!grunt.option('debug');
+
 	//Se inicia la configuración del projecto
 		grunt.initConfig({
 		//Le indica cuales archivos de configuracion se van a leer
@@ -94,7 +97,7 @@ module.exports = function(grunt) {
 					 options: {
 							 pretty: true,
 							 data:{
-							 	debug: true //Variable para compilar html con archivos de JS y CSS comprimidos si es false exporta cada archivo, si es true exporta con el link del archivo compilado 
+							 	debug: debug //Variable para compilar html con archivos de JS y CSS comprimidos si es false exporta cada archivo, si es true exporta con el link del archivo compilado 
 							 }
 					 },
 					 files: [ {
