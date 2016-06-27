@@ -1,1 +1,0 @@
-# Este directorio es para las librerías de JS que se utilicen en el proyecto
