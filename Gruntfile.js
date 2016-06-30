@@ -76,12 +76,7 @@ module.exports = function(grunt) {
 				},
 				define: {
 				         DEBUG: debug
-				       },
-				       use: [
-				         function() {
-				           return require('autoprefixer-stylus')({ browsers: ['last 10 versions', 'Firefox >= 10', 'last 3 Edge versions', 'last 10 iOS versions'] });
-				         }, debug || require('csso-stylus')
-				       ]
+				       }
 			},
 			/*Tarea para compilar stylus, escuchamos solo el archivo base donde se importan todas las librerias*/
 			compile: {
@@ -159,6 +154,15 @@ module.exports = function(grunt) {
 							},
 							command: 'git add .'
 					},
+
+				
+		},
+		stylus:{
+			command: 'stylus -u nib -u jeet --sourcemap src/stylus/main.styl --out publication/css/style.css ',
+			options: {
+					stdout: true
+			}
+
 		}
 
 	
@@ -176,7 +180,7 @@ module.exports = function(grunt) {
 						'publication/images/**.*'
 						],
 
-				tasks : ["jade", "stylus", "cssmin"],/*las tareas que se corren por defecto al observar cambios en los archivos*/
+				tasks : ["jade", "cssmin", "shell:stylus"],/*las tareas que se corren por defecto al observar cambios en los archivos*/
 				task : ['shell:stats']
 			}
 		},

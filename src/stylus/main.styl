@@ -1,18 +1,23 @@
-//IE support
+//Framework
 @import 'nib/vendor'
 @import 'nib/gradients'
-//Esto hace que exporte los estilos css3 con soporte para oldIE
-vendor-prefixes = ms official
-
-
-//Grid Framework
+@import 'modules/_normalize'
 @import 'jeet'
+//Configuracion del sitio
+@import 'modules/_settings'
+
+//IE support
+// //Esto hace que exporte los estilos css3 con soporte para oldIE
+vendor-prefixes = moz webkit o ms official
+
+
 //Variables y funciones, se deben declarar primero que el resto de archivos para poderlos utilizar
 @import "modules/variables"
 @import "modules/funciones"
 
 //Layout
-@import "modules/base"
+@import "modules/base" 
+@import "modules/layout"
 @import "modules/buttons"
 @import "modules/breadcrumbs"
 @import "modules/menu"
