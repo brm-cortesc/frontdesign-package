@@ -1,11 +1,11 @@
 //-Layout Base
-extends partials/base.jade
+extends partials/base.pug
 
 //-Etiqueta Title
 block title
 	- var seccion = "Demo"
 	- var titulo = "Home";
-	
+	 
 	title Ejemplo de meta title | #{titulo}
 
 //-Etiqueta Metadescription
@@ -14,13 +14,12 @@ block description
 
 
 block content
-
 	main
 
 		-for(a=0; a < 2; a++)
 
 			section
-				h1 Hello it's me
+				h1 Hello it's me #{a}
 
 				-for(x=0; x < 6; x++)
 

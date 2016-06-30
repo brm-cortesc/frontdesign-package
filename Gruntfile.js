@@ -4,6 +4,7 @@ module.exports = function(grunt) {
 
 	 var debug;
 	 debug = !!grunt.option('debug');
+	 require('load-grunt-tasks')(grunt);
 
 	//Se inicia la configuración del projecto
 		grunt.initConfig({
@@ -95,7 +96,7 @@ module.exports = function(grunt) {
 		  },
 		
 		/*Cargamos Jade como template engine*/
-		jade: {
+		pug: {
 			 compile: {
 					 options: {
 							 pretty: true,
@@ -105,7 +106,7 @@ module.exports = function(grunt) {
 					 },
 					 files: [ {
 						 cwd: "src/jTemplates", //Directorio donde se encuentran los archivos
-						 src: [ '**/*.jade', '!**/partials/*.jade', '!**/modules/*.jade' ],//ignoramos las carpetas con los fragmentos de código
+						 src: [ '**/*.pug', '!**/partials/*.pug', '!**/modules/*.pug' ],//ignoramos las carpetas con los fragmentos de código
 						 dest: "publication/",
 						 expand: true,//Esto  es para exportar el html comprimido o extendido
 						 ext: ".html" //Extensión de los archivos
@@ -172,8 +173,8 @@ module.exports = function(grunt) {
 		watch: {
 			brm: {
 				
-				files: ['src/**/**.jade',
-						'src/*.jade',
+				files: ['src/**/**.pug',
+						'src/*.pug',
 						'src/**/**.styl',
 						'src/*.styl',
 						'publication/*.js',
@@ -181,7 +182,7 @@ module.exports = function(grunt) {
 						'publication/images/**.*'
 						],
 
-				tasks : ["jade", "cssmin", "shell:stylus"],/*las tareas que se corren por defecto al observar cambios en los archivos*/
+				tasks : ["pug", "cssmin", "shell:stylus"],/*las tareas que se corren por defecto al observar cambios en los archivos*/
 				task : ['shell:stats']
 			}
 		},
@@ -189,24 +190,12 @@ module.exports = function(grunt) {
 // Fin de la configuración de las tareas
 
 	// Se especifican los plugins que se van a utilizar
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-qunit');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-jade');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-shell');
-	grunt.loadNpmTasks('grunt-browser-sync');
-	grunt.loadNpmTasks('grunt-contrib-stylus');
-	grunt.loadNpmTasks('grunt-stylus-map');
 
 	// Se programan las tareas a ejecuar al momento de llamar "grunt %nombretarea%".
 	grunt.registerTask('minicss', ['cssmin','clean']);
 	grunt.registerTask('minijs', ['concat','uglify','clean']);
 	grunt.registerTask('csstylus', ['stylus']);
-	grunt.registerTask('template', ['jade']);
+	grunt.registerTask('template', ['pug']);
 	grunt.registerTask('comando', ['shell:phantom']);
 	grunt.registerTask('git', ['shell:init']);
 	grunt.registerTask('stat', ['shell:stats','shell:add']);
