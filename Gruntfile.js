@@ -160,7 +160,8 @@ module.exports = function(grunt) {
 		stylus:{
 			command: 'stylus -u nib -u jeet --sourcemap src/stylus/main.styl --out publication/css/style.css ',
 			options: {
-					stdout: true
+					stdout: true,
+					stderr: true
 			}
 
 		}
