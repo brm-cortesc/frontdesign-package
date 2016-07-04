@@ -4,6 +4,7 @@ module.exports = function(grunt) {
 
 	 var debug;
 	 debug = !!grunt.option('debug');
+	 //cargamos todas las dependecias del package.json//
 	 require('load-grunt-tasks')(grunt);
 
 	//Se inicia la configuración del projecto
@@ -121,7 +122,7 @@ module.exports = function(grunt) {
 									src : ['publication/**/*.*','publication/*.*']
 							},
 							options: {
-									watchTask: true, // < VERY important
+									watchTask: true, // < VERY important, so much wow
 									injectChanges: true,
 									server: {
 												baseDir: "publication/"
