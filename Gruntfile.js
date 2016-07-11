@@ -4,6 +4,8 @@ module.exports = function(grunt) {
 
 	var debug;
 	 debug = !!grunt.option('debug');
+	 //Se cargan todas las tareas que se declaren en el package.json
+	 require('load-grunt-tasks')(grunt);
 
 	//Se inicia la configuración del projecto
 		grunt.initConfig({
@@ -174,21 +176,6 @@ module.exports = function(grunt) {
 		},
 	});
 // Fin de la configuración de las tareas
-
-	// Se especifican los plugins que se van a utilizar
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-qunit');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-jade');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-shell');
-	grunt.loadNpmTasks('grunt-browser-sync');
-	grunt.loadNpmTasks('grunt-contrib-stylus');
-	grunt.loadNpmTasks('grunt-stylus-map');
-
 	// Se programan las tareas a ejecuar al momento de llamar "grunt %nombretarea%".
 	grunt.registerTask('minicss', ['cssmin','clean']);
 	grunt.registerTask('minijs', ['concat','uglify','clean']);

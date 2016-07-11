@@ -5,7 +5,8 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "test": "grunt qunit"
+    "test": "grunt qunit",
+    "finalizar": "grunt template && grunt csstylus && grunt minicss && grunt minijs && rm publication/js/concat.**.js"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -20,6 +21,7 @@
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-watch": "~0.4.0",
     "grunt-shell": "^1.1.1",
-    "grunt-stylus-map": "^0.21.2"
+    "grunt-stylus-map": "^0.21.2",
+    "load-grunt-tasks": "^3.5.0"
   }
 }
