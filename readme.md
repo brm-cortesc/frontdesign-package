@@ -29,8 +29,14 @@ npm install
 
 **publication** - Es el directorio que se entrega al desarrollador para subir al servidor
 
-Después de instalar correctamente cada módulo en la terminal se debe ejecutar desde la consola:
+Después de instalar correctamente cada módulo en la terminal se debe ejecutar desde la consola para trabajar:
 
 ```
-grunt
+grunt --debug
+```
+
+Cuando termine su proyecto antes de entregarlo debe ejecutar el siguiente comando:
+
+```
+npm run finalizar
 ```
