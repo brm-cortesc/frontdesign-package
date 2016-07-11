@@ -29,7 +29,9 @@ npm install
 
 **publication** - Es el directorio que se entrega al desarrollador para subir al servidor
 
-Después de instalar correctamente cada módulo en la terminal se debe ejecutar desde la consola para trabajar:
+Después de instalar correctamente cada módulo abra los archivos **package.json** y **frontend.jquery.json** y reemplace los datos con los de su proyecto.
+
+Luego, desde la terminal para trabajar con sus archivos sin minificar ejecute el comando:
 
 ```
 grunt --debug
