@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 
 	 var debug;
 	 debug = !!grunt.option('debug');
-	 //Se cargan todas las tareas que se declaren en el package.json
+	 //cargamos todas las dependecias del package.json//
 	 require('load-grunt-tasks')(grunt);
 
 	//Se inicia la configuración del projecto
@@ -97,7 +97,7 @@ module.exports = function(grunt) {
 		  },
 		
 		/*Cargamos Jade como template engine*/
-		jade: {
+		pug: {
 			 compile: {
 					 options: {
 							 pretty: true,
@@ -107,7 +107,7 @@ module.exports = function(grunt) {
 					 },
 					 files: [ {
 						 cwd: "src/jTemplates", //Directorio donde se encuentran los archivos
-						 src: [ '**/*.jade', '!**/partials/*.jade', '!**/modules/*.jade' ],//ignoramos las carpetas con los fragmentos de código
+						 src: [ '**/*.pug', '!**/partials/*.pug', '!**/modules/*.pug' ],//ignoramos las carpetas con los fragmentos de código
 						 dest: "publication/",
 						 expand: true,//Esto  es para exportar el html comprimido o extendido
 						 ext: ".html" //Extensión de los archivos
@@ -122,7 +122,7 @@ module.exports = function(grunt) {
 									src : ['publication/**/*.*','publication/*.*']
 							},
 							options: {
-									watchTask: true, // < VERY important
+									watchTask: true, // < VERY important, so much wow
 									injectChanges: true,
 									server: {
 												baseDir: "publication/"
@@ -162,7 +162,8 @@ module.exports = function(grunt) {
 		stylus:{
 			command: 'stylus -u nib -u jeet --sourcemap src/stylus/main.styl --out publication/css/style.css ',
 			options: {
-					stdout: true
+					stdout: true,
+					stderr: true
 			}
 
 		}
@@ -173,8 +174,8 @@ module.exports = function(grunt) {
 		watch: {
 			brm: {
 				
-				files: ['src/**/**.jade',
-						'src/*.jade',
+				files: ['src/**/**.pug',
+						'src/*.pug',
 						'src/**/**.styl',
 						'src/*.styl',
 						'publication/*.js',
@@ -182,18 +183,20 @@ module.exports = function(grunt) {
 						'publication/images/**.*'
 						],
 
-				tasks : ["jade", "cssmin", "shell:stylus"],/*las tareas que se corren por defecto al observar cambios en los archivos*/
+				tasks : ["pug", "cssmin", "shell:stylus"],/*las tareas que se corren por defecto al observar cambios en los archivos*/
 				task : ['shell:stats']
 			}
 		},
 	});
 // Fin de la configuración de las tareas
 
+	// Se especifican los plugins que se van a utilizar
+
 	// Se programan las tareas a ejecuar al momento de llamar "grunt %nombretarea%".
 	grunt.registerTask('minicss', ['cssmin','clean']);
 	grunt.registerTask('minijs', ['concat','uglify','clean']);
 	grunt.registerTask('csstylus', ['stylus']);
-	grunt.registerTask('template', ['jade']);
+	grunt.registerTask('template', ['pug']);
 	grunt.registerTask('comando', ['shell:phantom']);
 	grunt.registerTask('git', ['shell:init']);
 	grunt.registerTask('stat', ['shell:stats','shell:add']);

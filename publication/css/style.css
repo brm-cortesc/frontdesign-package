@@ -1,5 +1,6 @@
 html {
   font-family: sans-serif;
+  font-size: 10px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -204,7 +205,7 @@ a img {
 }
 body {
   color: #434343;
-  font-size: 1.3em;
+  font-size: 1.6rem;
 }
 h1,
 h2,
@@ -212,10 +213,10 @@ h3 {
   font-family: 'Varela Round', sans-serif;
   color: #ee005f;
 }
-header {
+main {
   *zoom: 1;
   width: auto;
-  max-width: 130rem;
+  max-width: 120rem;
   float: none;
   display: block;
   margin-right: auto;
@@ -223,38 +224,78 @@ header {
   padding-left: 0;
   padding-right: 0;
 }
-header:before,
-header:after {
+main:before,
+main:after {
   content: '';
   display: table;
 }
-header:after {
+main:after {
   clear: both;
 }
-article {
+section {
+  *zoom: 1;
   *zoom: 1;
   float: left;
   clear: none;
   text-align: inherit;
-  width: 22.75%;
-  margin-left: 0%;
-  margin-right: 3%;
+  width: 44.36363636363636%;
+  margin-left: 2.04%;
+  margin-right: 2%;
+  -moz-transition: all ease-in-out 0.3s;
+  -webkit-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  -ms-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
 }
-article:before,
-article:after {
+section:before,
+section:after {
   content: '';
   display: table;
 }
-article:after {
+section:after {
   clear: both;
 }
-article:last-child {
+section:before,
+section:after {
+  content: '';
+  display: table;
+}
+section:after {
+  clear: both;
+}
+section:last-child {
+  margin-right: 0%;
+}
+section article {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 28.90909090909091%;
+  margin-left: 0%;
+  margin-right: 2%;
+  padding: 0.15rem;
+  -moz-transition: all ease-in-out 0.3s;
+  -webkit-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  -ms-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+}
+section article:before,
+section article:after {
+  content: '';
+  display: table;
+}
+section article:after {
+  clear: both;
+}
+section article:last-child {
   margin-right: 0%;
 }
 header {
   *zoom: 1;
   width: auto;
-  max-width: 130rem;
+  max-width: 120rem;
   float: none;
   display: block;
   margin-right: auto;
@@ -272,12 +313,14 @@ header:after {
 }
 header nav {
   *zoom: 1;
-  float: left;
-  clear: none;
-  text-align: inherit;
-  width: 31.33333333333333%;
-  margin-left: 0%;
-  margin-right: 3%;
+  width: auto;
+  max-width: 70%;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0;
 }
 header nav:before,
 header nav:after {
@@ -287,8 +330,36 @@ header nav:after {
 header nav:after {
   clear: both;
 }
-header nav:last-child {
+header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+header nav ul li {
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 19.607843137254903%;
+  margin-left: 0%;
   margin-right: 0%;
+}
+header nav ul li:before,
+header nav ul li:after {
+  content: '';
+  display: table;
+}
+header nav ul li:after {
+  clear: both;
+}
+header nav ul li a {
+  color: #fff;
+  display: block;
+  padding: 0.25rem;
+  text-align: center;
+  width: 100%;
 }
 .btn-cargar-mas {
   background: -moz-linear-gradient(top, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
@@ -330,7 +401,6 @@ header nav:last-child {
 }
 .nav-tabs li {
   background-color: #f79529;
-  border: none;
   color: #fff;
 }
 .nav-tabs li.active a {
@@ -343,9 +413,7 @@ header nav:last-child {
 }
 footer {
   background-color: #f79529;
-  bottom: 0;
   color: #fff;
-  position: absolute;
   width: 100%;
 }
 .u-bg-azul {
@@ -355,5 +423,47 @@ footer {
 .u-no-border {
   padding: 0;
   margin: 0;
+}
+@media (max-width: 768px) {
+  section {
+    *zoom: 1;
+    float: left;
+    clear: none;
+    text-align: inherit;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 2%;
+  }
+  section:before,
+  section:after {
+    content: '';
+    display: table;
+  }
+  section:after {
+    clear: both;
+  }
+  section:last-child {
+    margin-right: 0%;
+  }
+  section article {
+    *zoom: 1;
+    float: left;
+    clear: none;
+    text-align: inherit;
+    width: 44.36363636363636%;
+    margin-left: 0%;
+    margin-right: 2%;
+  }
+  section article:before,
+  section article:after {
+    content: '';
+    display: table;
+  }
+  section article:after {
+    clear: both;
+  }
+  section article:last-child {
+    margin-right: 0%;
+  }
 }
 /*# sourceMappingURL=style.css.map */

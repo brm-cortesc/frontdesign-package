@@ -1,13 +1,15 @@
-//Framework
+//Plugin CSS3
 @import 'nib/vendor'
 @import 'nib/gradients'
+//Iguala estilos default de los navegadores Chrome, Firefox, Opera, Safari 6+, IE 8+ v4.1.1 
 @import 'modules/_normalize'
 @import 'jeet'
+//debug del layout
+// edit(green)
 //Configuracion del sitio
 @import 'modules/_settings'
 
-//IE support
-// //Esto hace que exporte los estilos css3 con soporte para oldIE
+// Autoprefijos de navegadores y hacks para IE8
 vendor-prefixes = moz webkit o ms official
 
 
@@ -27,4 +29,4 @@ vendor-prefixes = moz webkit o ms official
 @import "modules/utilities"
 // @import "modules/animations"
 // @import "modules/keyframes"
-// @import "modules/media-queries"
+@import "modules/media-queries"
