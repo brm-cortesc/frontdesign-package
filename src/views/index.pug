@@ -1,5 +1,5 @@
 //-Layout Base
-extends partials/base.jade
+extends ../templates/base.pug
 
 //-Etiqueta Title
 block title
@@ -9,16 +9,13 @@ block title
 block description
 	meta(name="description", content="Frontend BRM" )
 
-//-Breadcrumbs
-block migas
-	li  #{titulo}
 
 block content
 	section.container-fluid
 		div.row
 
 			article.col-lg-10.col-md-10.col-sm-10.col-xs-12.col-lg-offset-1.col-md-offset-1.col-sm-offset-1
-				h1 Titulo 2
+				h1 Titulo
 
 				h4 hola que hace
 

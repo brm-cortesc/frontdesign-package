@@ -35,31 +35,15 @@ body
 		
 	//-Layout del header (logo, menu, login, etc)
 
-	include header.jade
+	include partials/header.pug
 	
-	//-Contenido de cada page
-	div.container-fluid
-
-		div.row
-
-			div.col-lg-10.col-md-10.col-sm-10.col-xs-12.col-lg-offset-1.col-md-offset-1.col-sm-offset-1
-
-				include ../modules/breadcrumbs.jade
 	
-	//-Este bloque es para el markup de cada HTML
 	block content
 
-	div.container-fluid
 
-		div.row
-
-			div.col-lg-10.col-md-10.col-sm-10.col-xs-12.col-lg-offset-1.col-md-offset-1.col-sm-offset-1
-
-				include ../modules/breadcrumbs.jade
-			
 
 	//- Layout del Footer
-	include footer.jade
+	include partials/footer.pug
 	
 	//-Acá se agregan los scripts que pueden estar para una sola página
 	block Scripts

@@ -1,27 +1,36 @@
 {
-  "name": "Frontend-brm",
-  "version": "0.2.0",
+  "name": "frontend-brm-gulp",
+  "version": "0.1.0",
   "engines": {
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "test": "grunt qunit",
-    "finalizar": "grunt template && grunt csstylus && grunt minicss && grunt minijs && rm publication/js/concat.**.js"
+    "watch": "gulp watch"
   },
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-browser-sync": "^1.3.6",
-    "grunt-contrib-clean": "~0.4.0",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-cssmin": "^0.10.0",
-    "grunt-contrib-jade": "^0.15.0",
-    "grunt-contrib-jshint": "~0.10.0",
-    "grunt-contrib-qunit": "~0.2.0",
-    "grunt-contrib-stylus": "^1.2.0",
-    "grunt-contrib-uglify": "~0.2.0",
-    "grunt-contrib-watch": "~0.4.0",
-    "grunt-shell": "^1.1.1",
-    "grunt-stylus-map": "^0.21.2",
-    "load-grunt-tasks": "^3.5.0"
-  }
+    "browser-sync": "^2.15.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-data": "^1.2.1",
+    "gulp-header": "^1.8.8",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-stylus": "^2.5.0",
+    "gulp-uglify": "^2.0.0",
+    "nib": "^1.1.2"
+  },
+  "description": "![Manual de supervivencia frontend](http://abraham.brm.com.co/fabricaDeCajas/zip/logo-manual-frontend.jpg?12234 \"Manual de supervivencia frontend en brm\")",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brm-cortesc/frontdesign-package"
+  },
+  "author": "Cristian Cortés",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brm-cortesc/frontdesign-package/issues"
+  },
+  "homepage": "https://github.com/brm-cortesc/frontdesign-package"
 }
