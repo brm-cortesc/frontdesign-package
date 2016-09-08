@@ -34,11 +34,12 @@ Después de instalar correctamente cada módulo abra los archivos **package.json
 Luego, desde la terminal para trabajar con sus archivos sin minificar ejecute el comando:
 
 ```
-grunt --debug
+npm run watch
 ```
 
-Cuando termine su proyecto antes de entregarlo debe ejecutar el siguiente comando:
+<!-- Cuando termine su proyecto antes de entregarlo debe ejecutar el siguiente comando:
 
 ```
 npm run finalizar
 ```
+ -->
