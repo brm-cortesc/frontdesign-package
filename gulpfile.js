@@ -10,13 +10,13 @@ var gulp      = require('gulp'),
   stylus      = require('gulp-stylus'),
   nib         = require('nib'),
   fs          = require('fs'),
-  cache       = require('gulp-cache');,
-  pug         = require('gulp-pug');
+  cache       = require('gulp-cache'),
+  pug         = require('gulp-pug'),
+  argv        = require('yargs').argv;  
 
-//banner
-var pkg = require('./pink-black.json');
-
-var debug = false;
+//data
+var pkg   = require('./frontend.json'),
+    debug = argv.debug;
 
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
@@ -31,7 +31,11 @@ var banner = ['/**',
 
 //arreglo concatenar JS en el orden en el que se cargan
 var jsLibs = ['publication/js/libs/jquery.js',
-              'publication/js/libs/bootstrap.min.js'];
+              'publication/js/libs/jquery.validate.js',
+              'publication/js/libs/jquery.bxslider.min.js',
+              'publication/js/libs/bootstrap.min.js',
+              'publication/js/libs/velocity.min.js'
+              ];
 
 
 //Tarea para comprimir las libreriras JS
