@@ -1,0 +1,5 @@
+mixin image(src, name)
+	img(src="images/"+src, title=name, alt=name)&attributes(attributes)
+
+//-Implementation
+	+image('filename', 'alt/title text')(other attributes)

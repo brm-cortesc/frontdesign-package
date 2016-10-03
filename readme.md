@@ -24,7 +24,7 @@ npm install
 
 ## Directorios del proyecto
 
-**src** - Es el directorio en donde están los archivos source de preprocesadores (Jade, Stylus, Coffescript)
+**src** - Es el directorio en donde están los archivos source de preprocesadores (Pug & Stylus)
 
 
 **publication** - Es el directorio que se entrega al desarrollador para subir al servidor
@@ -34,7 +34,7 @@ Después de instalar correctamente cada módulo abra los archivos **package.json
 Luego, desde la terminal para trabajar con sus archivos sin minificar ejecute el comando:
 
 ```
-grunt --debug
+npm run watch
 ```
 
 Cuando termine su proyecto antes de entregarlo debe ejecutar el siguiente comando:

@@ -1,12 +1,12 @@
 {
-  "name": "Frontend-brm",
-  "version": "0.2.0",
+  "name": "frontend-brm",
+  "version": "0.3.0",
   "engines": {
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "test": "grunt qunit",
-    "finalizar": "grunt template && grunt csstylus && grunt minicss && grunt minijs && rm publication/js/concat.**.js"
+    "watch": "grunt --debug",
+    "finalizar": "grunt views && grunt csstylus && grunt minicss && grunt minijs && rm publication/js/concat.**.js"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -14,9 +14,8 @@
     "grunt-contrib-clean": "~0.4.0",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-cssmin": "^0.10.0",
-    "grunt-contrib-jade": "^0.15.0",
     "grunt-contrib-jshint": "~0.10.0",
-    "grunt-contrib-qunit": "~0.2.0",
+    "grunt-contrib-pug": "^1.0.0",
     "grunt-contrib-stylus": "^1.2.0",
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-watch": "~0.4.0",

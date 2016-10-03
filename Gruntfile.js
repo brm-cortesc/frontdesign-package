@@ -24,7 +24,7 @@ module.exports = function(grunt) {
 		//Concatena archivos css o js en un solo archivo
 		concat: {
 			options: {
-				banner: '<%= banner %>',
+				// banner: '<%= banner %>',
 				stripBanners: true
 			},
 			dist: {
@@ -34,17 +34,13 @@ module.exports = function(grunt) {
 		},
 		//Minifica librerias js (jquery,bootstrap, etc)
 		uglify: {
-			options: {
-				banner: '<%= banner %>'
-			},
+			// options: {
+			// 	banner: '<%= banner %>'
+			// },
 			dist: {
 				src: '<%= concat.dist.dest %>',
 				dest: 'publication/js/libs.<%= pkg.name %>.min.js'
 			},
-		},
-		//Se utiliza para revisar el código js
-		qunit: {
-			files: ['test/**/*.html','publication/js/*.js']
 		},
 		//Depura el código js
 		jshint: {
@@ -71,7 +67,7 @@ module.exports = function(grunt) {
 				}
 			},
 			options:{
-				 banner: '<%= banner %>', 
+				 // banner: '<%= banner %>', 
 				compress: false,
 				sourcemap:{
 				           inline: true
@@ -94,7 +90,7 @@ module.exports = function(grunt) {
 		  },
 		
 		/*Cargamos Jade como template engine*/
-		jade: {
+		pug: {
 			 compile: {
 					 options: {
 							 pretty: true,
@@ -104,8 +100,8 @@ module.exports = function(grunt) {
 							 }
 					 },
 					 files: [ {
-						 cwd: "src/jTemplates", //Directorio donde se encuentran los archivos
-						 src: [ '**/*.jade', '!**/partials/*.jade', '!**/modules/*.jade' ],//ignoramos las carpetas con los fragmentos de código
+						 cwd: 'src/views', //Directorio donde se encuentran los archivos
+						 src: [ '**/*.pug', '!**/partials/*.pug', '!**/modules/*.pug' ],//ignoramos las carpetas con los fragmentos de código
 						 dest: "publication/",
 						 expand: true,//Esto  es para exportar el html comprimido o extendido
 						 ext: ".html" //Extensión de los archivos
@@ -128,50 +124,17 @@ module.exports = function(grunt) {
 							}
 					}
 			},
-				//Se utiliza para ejecutar comandos de consola desde el archivo
-		shell: {
-			phantom: {
-				command: 'phantomjs publication/js/phantom/screen.js',
-				options: {
-						stdout: true
-				},
-				init: {                      // Target
-							options: {                      // Options
-									stderr: false
-							},
-							command: 'git init'
-					},
-
-				stats: {                      // Target
-							options: {                      // Options
-									stderr: false
-							},
-							command: 'git status'
-					},
-					add: {                      // Target
-							options: {                      // Options
-									stderr: false
-							},
-							command: 'git add .'
-					},
-		}
-
-	
-		},
 		/*Mantiene una tarea que observa los archivos y ejecuta tareas atumaticamente al momento de detectar cambios, solo se observan los archivos de los preprocesadores para evitar loops.*/
 		watch: {
 			brm: {
 				
-				files: ['src/**/**.jade',
-						'src/*.jade',
-						'src/**/**.styl',
-						'src/*.styl',
-						'publication/*.js',
+				files: ['src/**/*.pug',
+						'src/**/*.styl',
 						'publication/**/**.js',
 						'publication/images/**.*'
 						],
 
-				tasks : ["jade", "stylus", "cssmin"],/*las tareas que se corren por defecto al observar cambios en los archivos*/
+				tasks : ["pug", "stylus", "cssmin"],/*las tareas que se corren por defecto al observar cambios en los archivos*/
 				task : ['shell:stats']
 			}
 		},
@@ -181,10 +144,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('minicss', ['cssmin','clean']);
 	grunt.registerTask('minijs', ['concat','uglify','clean']);
 	grunt.registerTask('csstylus', ['stylus']);
-	grunt.registerTask('template', ['jade']);
-	grunt.registerTask('comando', ['shell:phantom']);
-	grunt.registerTask('git', ['shell:init']);
-	grunt.registerTask('stat', ['shell:stats','shell:add']);
+	grunt.registerTask('views', ['pug']);
 	grunt.registerTask('observar', ['watch:brm','browserSync']);
 	grunt.registerTask('depurar', ['jshint']);
 
