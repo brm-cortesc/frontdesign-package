@@ -18,6 +18,10 @@ var gulp      = require('gulp'),
 var pkg   = require('./frontend.json'),
     debug = argv.debug;
 
+
+//Error handler//
+function onError(err) { console.log(err); this.emit('end'); };
+
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
   ' * @version v<%= pkg.version %>',
@@ -59,6 +63,7 @@ gulp.task('css', function () {
     use: nib(), // cargamos nib para uso de css3
     compress: false
   })) 
+  .on('error', onError)
   .pipe(rename('style.css')) //renombramos el archivo
   .pipe(gulp.dest('./publication/css')) // destino del archivo
   .pipe(sourcemaps.write('.')) //creamos sourcemap aparte
@@ -91,6 +96,7 @@ gulp.task('views', function() {
   .pipe(pug({
     pretty: true
     }))
+  .on('error', onError)
   .pipe(gulp.dest('./publication'))
   .pipe(browserSync.reload({
       stream: true
