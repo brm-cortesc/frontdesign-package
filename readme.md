@@ -6,7 +6,7 @@ Este es un esfuerzo para que todos los diseñadores o personas que deban trabaja
 - [NodeJS](https://nodejs.org/) 0.10.*
 - [GruntJS](http://gruntjs.com/) 0.1.13
 - Snippets brm
-- Leer [Manual Jade](https://docs.google.com/a/brm.com.co/presentation/d/18GzVbLxmasYLi2GetJxAgoBe55L7_c0Bi1GHi6OoO0o/)
+- Leer [Manual Pug (antes Jade)](https://docs.google.com/a/brm.com.co/presentation/d/18GzVbLxmasYLi2GetJxAgoBe55L7_c0Bi1GHi6OoO0o/)
 - Leer [Manual SMACSS](https://docs.google.com/a/brm.com.co/presentation/d/18GzVbLxmasYLi2GetJxAgoBe55L7_c0Bi1GHi6OoO0o/)
 
 Si no tiene instaladas estas herramientas en tu equipo busca apoyo en Help Desk.
@@ -24,7 +24,7 @@ npm install
 
 ## Directorios del proyecto
 
-**src** - Es el directorio en donde están los archivos source de preprocesadores (Pug & Stylus)
+**src** - Es el directorio en donde están los archivos source de preprocesadores (Pug, Stylus, Coffeescript)
 
 
 **publication** - Es el directorio que se entrega al desarrollador para subir al servidor
