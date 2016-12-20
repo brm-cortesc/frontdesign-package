@@ -13,7 +13,6 @@ const gulp      = require('gulp'),
   cache       = require('gulp-cache'),
   coffee      = require('gulp-coffee'),
   pug         = require('gulp-pug'),
-  uncss       = require('gulp-uncss'),
   argv        = require('yargs').argv;  
 
 //data
