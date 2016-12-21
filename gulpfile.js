@@ -1,20 +1,20 @@
-const gulp      = require('gulp'),
-  browserSync = require('browser-sync').create(),
-  concat      = require('gulp-concat'), 
-  rename      = require('gulp-rename'),
-  minifyCSS   = require('gulp-minify-css'),
-  uglify      = require('gulp-uglify'),
-  data        = require('gulp-data'),
-  header      = require('gulp-header'),
-  sourcemaps  = require('gulp-sourcemaps'),
-  stylus      = require('gulp-stylus'),
-  nib         = require('nib'),
-  path        = require('path'),
-  cache       = require('gulp-cache'),
-  coffee      = require('gulp-coffee'),
-  pug         = require('gulp-pug'),
-  uncss       = require('gulp-uncss'),
-  argv        = require('yargs').argv;  
+const gulp        = require('gulp'),
+      browserSync = require('browser-sync').create(),
+      concat      = require('gulp-concat'), 
+      rename      = require('gulp-rename'),
+      minifyCSS   = require('gulp-minify-css'),
+      uglify      = require('gulp-uglify'),
+      data        = require('gulp-data'),
+      header      = require('gulp-header'),
+      sourcemaps  = require('gulp-sourcemaps'),
+      stylus      = require('gulp-stylus'),
+      nib         = require('nib'),
+      stylint     = require('gulp-stylint'),
+      path        = require('path'),
+      cache       = require('gulp-cache'),
+      purify      = require('gulp-purifycss'),
+      pug         = require('gulp-pug'),
+      argv        = require('yargs').argv;  
 
 //data
 const pkg   = require('./frontend.json'),
@@ -41,14 +41,6 @@ const routes = {
   routes.src + routes.templates = 'src/templates/'
 
 **/
-
-gulp.task('log',() =>{
-
-  app = path.join(__dirname, 'publication/')
-
-  console.log(app);
-
-});
 
 //Error handler//
 function onError(err) {
@@ -98,7 +90,7 @@ gulp.task('css',  () =>{
   .pipe(stylus({ //iniciamos stylus
     use: nib(), // cargamos nib para uso de css3
     compress: false
-  })) 
+  }))
   .on('error', onError)
   .pipe(rename('style.css')) //renombramos el archivo
   .pipe(gulp.dest(routes.app + routes.css)) // destino del archivo
@@ -110,13 +102,29 @@ gulp.task('css',  () =>{
 
 });
 
+
+//tarea para ver errores en sintaxis & semantica de stylus
+gulp.task('csslint', () =>{
+  return gulp.src(routes.src + routes.stylus + '**/*.styl')
+        .pipe(stylint({
+          rules:{
+            'leadingZero': 'never',
+            'commentSpace': 'never'
+          }
+
+        }))
+        .pipe(stylint.reporter({
+          verbose: true
+         }))
+
+});
+
 //Concatenar y minificar CSS
 gulp.task('minicss',  () =>{
   return gulp.src([routes.app + routes.css + '**/*.css', '!'+routes.app + routes.css +'/**/'+pkg.name+'.min.css'])
   .pipe(concat(pkg.name +'.min.css'))
-  // .pipe(uncss({
-  //            html: ['publication/**/*.html'] //Borramos css que no se usa
-  //  }))
+  .pipe(purify([ routes.src + '/**/*.**'],
+    {info:true} ))
   .pipe(minifyCSS())
   .pipe(gulp.dest(routes.app + routes.css))
 
@@ -148,7 +156,7 @@ gulp.task('views',  () =>{
 gulp.task('browserSync',  () =>{
   browserSync.init({
     server: {
-      baseDir: 'publication/'
+      baseDir: routes.app
     },
   })
 });
@@ -159,9 +167,9 @@ gulp.task('limpiar', (done) =>{
 
 
 //tarea que observa cambios para recargar el navegador
-gulp.task('watch', ['browserSync', 'views', 'css'],  () =>{
+gulp.task('watch', ['browserSync', 'views', 'css', 'csslint'],  () =>{
 
-  gulp.watch( routes.src + routes.stylus +'**/*.styl',  ['css']); //Stylus
+  gulp.watch( routes.src + routes.stylus +'**/*.styl',  ['css', 'csslint']); //Stylus
   gulp.watch([routes.src + routes.views + '*.pug', routes.src + routes.templates + '**/*.pug'],  ['views']); //Pug
   gulp.watch('publication/js/**/*.js', browserSync.reload);
   gulp.watch(routes.app + 'images/**/*.{gif,svg,jpg,png}', browserSync.reload); //Images
