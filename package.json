@@ -19,7 +19,9 @@
     "grunt-contrib-stylus": "^1.2.0",
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-watch": "~0.4.0",
+    "grunt-purifycss": "^0.1.1",
     "grunt-shell": "^1.1.1",
+    "grunt-stylint": "^0.1.2",
     "grunt-stylus-map": "^0.21.2",
     "load-grunt-tasks": "^3.5.0"
   }

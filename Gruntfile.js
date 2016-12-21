@@ -60,6 +60,8 @@ module.exports = function(grunt) {
 				src: ['publication/css/**/*.*','publication/css/*.*']
 			},
 		},
+
+		/*tareas para css*/
 		stylus: {
 			map:{
 			  files: {
@@ -80,7 +82,13 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		// Minifica y combina el código css
+		/* Lint de stylus para evaular el codigo*/
+
+		stylint: {
+		   src: ['src/**/*.styl']
+		 },
+
+		/* Minifica y combina el código css*/
 		cssmin: {
 		      combine: {
 		      files: {
@@ -88,6 +96,19 @@ module.exports = function(grunt) {
 		      }
 		    }
 		  },
+
+		/*evalua y borra css que no se usa*/
+		purifycss:{
+			options:{
+				minify: true
+			},
+			target:{
+				src: ['src/**/*.**'],
+				css: ['publication/css/<%= pkg.name %>.min.css'],
+				dest: 'publication/css/<%= pkg.name %>.min.css'
+			}
+
+		},
 		
 		/*Cargamos Jade como template engine*/
 		pug: {
@@ -126,24 +147,27 @@ module.exports = function(grunt) {
 			},
 		/*Mantiene una tarea que observa los archivos y ejecuta tareas atumaticamente al momento de detectar cambios, solo se observan los archivos de los preprocesadores para evitar loops.*/
 		watch: {
-			brm: {
+			pug: {
 				
-				files: ['src/**/*.pug',
-						'src/**/*.styl',
-						'publication/**/**.js',
-						'publication/images/**.*'
-						],
+				files: ['src/**/*.pug'],
 
-				tasks : ["pug", "stylus", "cssmin"],/*las tareas que se corren por defecto al observar cambios en los archivos*/
+				tasks : ["pug"],/*las tareas que se corren por defecto al observar cambios en los archivos*/
 				task : ['shell:stats']
-			}
+			},
+			stylus: {
+				
+				files: ['src/**/*.styl'],
+
+				tasks : ["stylus", 'stylint', 'cssmin'],/*las tareas que se corren por defecto al observar cambios en los archivos*/
+				task : ['shell:stats']
+			},
 		},
 	});
 // Fin de la configuración de las tareas
 	// Se programan las tareas a ejecuar al momento de llamar "grunt %nombretarea%".
-	grunt.registerTask('minicss', ['cssmin','clean']);
+	grunt.registerTask('minicss', ['cssmin','purifycss', 'clean',  ]);
 	grunt.registerTask('minijs', ['concat','uglify','clean']);
-	grunt.registerTask('csstylus', ['stylus']);
+	grunt.registerTask('csstylus', ['stylus', 'stylint' ]);
 	grunt.registerTask('views', ['pug']);
 	grunt.registerTask('observar', ['watch:brm','browserSync']);
 	grunt.registerTask('depurar', ['jshint']);
