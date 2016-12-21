@@ -85,7 +85,7 @@ module.exports = function(grunt) {
 		/* Lint de stylus para evaular el codigo*/
 
 		stylint: {
-		   src: ['src/**/*.styl']
+		   src: ['src/**/*.styl', '!src/stylus/bootstrap/**/*.**']
 		 },
 
 		/* Minifica y combina el código css*/
@@ -103,7 +103,7 @@ module.exports = function(grunt) {
 				minify: true
 			},
 			target:{
-				src: ['src/**/*.**'],
+				src: ['src/templates/**/*.**', 'src/views/**/*.**', 'publication/js/*.js'],
 				css: ['publication/css/<%= pkg.name %>.min.css'],
 				dest: 'publication/css/<%= pkg.name %>.min.css'
 			}
