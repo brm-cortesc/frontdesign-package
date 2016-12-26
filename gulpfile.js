@@ -105,7 +105,7 @@ gulp.task('css',  () =>{
 
 //tarea para ver errores en sintaxis & semantica de stylus
 gulp.task('csslint', () =>{
-  return gulp.src(routes.src + routes.stylus + '**/*.styl')
+  return gulp.src([routes.src + routes.stylus + '**/*.styl', '!'+routes.src + routes.stylus + 'bootstrap/**/*.**' ])
         .pipe(stylint({
           rules:{
             'leadingZero': 'never',
@@ -123,9 +123,13 @@ gulp.task('csslint', () =>{
 gulp.task('minicss',  () =>{
   return gulp.src([routes.app + routes.css + '**/*.css', '!'+routes.app + routes.css +'/**/'+pkg.name+'.min.css'])
   .pipe(concat(pkg.name +'.min.css'))
-  .pipe(purify([ routes.src + '/**/*.**'],
+  // .pipe(purify([ routes.src + '/templates/*.**' + routes ],
+  .pipe(purify([
+   routes.src + routes.views + '*',
+   routes.src + routes.templates + '**/*.**',
+   routes.js + 'js/*.js' ],
     {info:true} ))
-  .pipe(minifyCSS())
+  // .pipe(minifyCSS())
   .pipe(gulp.dest(routes.app + routes.css))
 
 });

@@ -1,8 +1,11 @@
 //Nib & gradient support
-@import 'nib/vendor'
-@import 'nib/gradients'
+@require 'nib'
 //Esto hace que exporte los estilos css3 con soporte para todos los navegadores
 vendor-prefixes = o ms webkit moz official
+
+//Bootstrap v 3.3.7
+@import 'bootstrap.config'
+
 
 //Variables y funciones, se deben declarar primero que el resto de archivos para poderlos utilizar
 @import "modules/variables"

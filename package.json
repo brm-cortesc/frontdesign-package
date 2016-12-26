@@ -6,7 +6,7 @@
   },
   "scripts": {
     "watch": "gulp watch --debug",
-    "finalizar": "gulp css && gulp minicss && gulp views && gulp libs &&  rm publication/**/concat.**.** && gulp limpiar"
+    "finalizar": "gulp css && gulp minicss && gulp views && gulp libs &&  rm publication/**/concat.**.** && rm -R publication/maps && gulp limpiar"
   },
   "devDependencies": {
     "browser-sync": "^2.15.0",
