@@ -129,7 +129,7 @@ gulp.task('minicss',  () =>{
    routes.src + routes.templates + '**/*.**',
    routes.js + 'js/*.js' ],
     {info:true} ))
-  // .pipe(minifyCSS())
+  .pipe(minifyCSS())
   .pipe(gulp.dest(routes.app + routes.css))
 
 });
