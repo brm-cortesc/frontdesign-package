@@ -154,8 +154,6 @@ gulp.task('views',  () =>{
     }))
 });
 
-
-
 //Tarea base de browsersync para crear el servidor
 gulp.task('browserSync',  () =>{
   browserSync.init({
