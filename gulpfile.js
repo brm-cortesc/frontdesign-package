@@ -123,16 +123,13 @@ gulp.task('csslint', () =>{
 gulp.task('minicss',  () =>{
   return gulp.src([routes.app + routes.css + '**/*.css', '!'+routes.app + routes.css +'/**/'+pkg.name+'.min.css'])
   .pipe(concat(pkg.name +'.min.css'))
-  // .pipe(purify([ routes.src + '/templates/*.**' + routes ],
-  .pipe(purify([
-   routes.src + routes.views + '*',
-   routes.src + routes.templates + '**/*.**',
-   routes.js + 'js/*.js' ],
-    {info:true} ))
+  // .pipe(purify([ routes.src + '/**/*.**'],
+  //   {info:true} ))
   .pipe(minifyCSS())
   .pipe(gulp.dest(routes.app + routes.css))
 
 });
+
 
 
 //Render de pug
