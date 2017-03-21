@@ -1,4 +1,4 @@
-![Manual de supervivencia frontend](http://abraham.brm.com.co/fabricaDeCajas/zip/logo-manual-frontend.jpg?12234 "Manual de supervivencia frontend en brm")
+![Manual de supervivencia frontend](https://www.brm.com.co/logo-manual-frontend.jpg "Manual de supervivencia frontend en brm")
 
 Este es un esfuerzo para que todos los diseñadores o personas que deban trabajar proyectos con html/css usen un solo esquema de trabajo y así todos estemos en la misma página.
 
@@ -6,7 +6,7 @@ Este es un esfuerzo para que todos los diseñadores o personas que deban trabaja
 - [NodeJS](https://nodejs.org/) 0.10.*
 - [GulpJS](http://gulpjs.com/)
 - Snippets brm
-- Leer [Manual Jade](https://docs.google.com/a/brm.com.co/presentation/d/18GzVbLxmasYLi2GetJxAgoBe55L7_c0Bi1GHi6OoO0o/)
+- Leer [Manual Pug](https://docs.google.com/a/brm.com.co/presentation/d/18GzVbLxmasYLi2GetJxAgoBe55L7_c0Bi1GHi6OoO0o/)
 - Leer [Manual SMACSS](https://docs.google.com/a/brm.com.co/presentation/d/18GzVbLxmasYLi2GetJxAgoBe55L7_c0Bi1GHi6OoO0o/)
 
 Si no tiene instaladas estas herramientas en tu equipo busca apoyo en Help Desk.
@@ -24,7 +24,7 @@ npm install
 
 ## Directorios del proyecto
 
-**src** - Es el directorio en donde están los archivos source de preprocesadores (Jade, Stylus, Coffescript)
+**src** - Es el directorio en donde están los archivos source de preprocesadores (Pug, Stylus, Coffescript)
 
 
 **publication** - Es el directorio que se entrega al desarrollador para subir al servidor
@@ -37,9 +37,8 @@ Luego, desde la terminal para trabajar con sus archivos sin minificar ejecute el
 npm run watch
 ```
 
-<!-- Cuando termine su proyecto antes de entregarlo debe ejecutar el siguiente comando:
+Cuando termine su proyecto antes de entregarlo debe ejecutar el siguiente comando:
 
 ```
 npm run finalizar
 ```
- -->
