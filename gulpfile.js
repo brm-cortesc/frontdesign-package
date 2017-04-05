@@ -14,7 +14,8 @@ const gulp        = require('gulp'),
       cache       = require('gulp-cache'),
       purify      = require('gulp-purifycss'),
       pug         = require('gulp-pug'),
-      argv        = require('yargs').argv;  
+      plumber     = require('gulp-plumber'),      
+      argv        = require('yargs').argv;
 
 //data
 const pkg   = require('./frontend.json'),
@@ -42,13 +43,6 @@ const routes = {
 
 **/
 
-//Error handler//
-function onError(err) {
-  console.log(err);
-  this.emit('end');
-
-};
-
 
 const banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
@@ -75,6 +69,7 @@ const jsLibs = [
 gulp.task('libs',  () =>{  
      return gulp.src(jsLibs)
         .pipe(header(banner, { pkg : pkg } ))
+        .pipe(plumber())
         .pipe(concat('concat.libs.js'))
         .pipe(gulp.dest(routes.app + routes.js))
         .pipe(rename('libs.min.js'))
@@ -85,13 +80,13 @@ gulp.task('libs',  () =>{
 //tarea para compilar stylus
 gulp.task('css',  () =>{
   return gulp.src(routes.src + routes.stylus + 'main.styl')
-    .pipe(header(banner, { pkg : pkg } ))
-    .pipe(sourcemaps.init()) //cargamos tarea de sourcemaps
+  .pipe(header(banner, { pkg : pkg } ))
+  .pipe(plumber())
+  .pipe(sourcemaps.init()) //cargamos tarea de sourcemaps
   .pipe(stylus({ //iniciamos stylus
     use: nib(), // cargamos nib para uso de css3
     compress: false
   }))
-  .on('error', onError)
   .pipe(rename('style.css')) //renombramos el archivo
   .pipe(gulp.dest(routes.app + routes.css)) // destino del archivo
   .pipe(sourcemaps.write('../maps')) //creamos sourcemap aparte
@@ -141,6 +136,7 @@ gulp.task('views',  () =>{
         name: pkg.name
       };
     }))
+  .pipe(plumber())
   .pipe(pug({
     pretty: true
     }))
