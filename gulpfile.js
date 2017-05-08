@@ -140,7 +140,6 @@ gulp.task('views',  () =>{
   .pipe(pug({
     pretty: true
     }))
-  .on('error', onError)
   .pipe(gulp.dest(routes.app))
   .pipe(browserSync.reload({
       stream: true
@@ -164,11 +163,11 @@ gulp.task('limpiar', (done) =>{
 //tarea que observa cambios para recargar el navegador
 gulp.task('watch', ['browserSync', 'views', 'css', 'csslint'],  () =>{
 
-  gulp.watch( routes.src + routes.stylus +'**/*.styl',  ['css', 'csslint']); //Stylus
-  gulp.watch([routes.src + routes.views + '*.pug', routes.src + routes.templates + '**/*.pug'],  ['views']); //Pug
-  gulp.watch('publication/js/**/*.js', browserSync.reload);
-  gulp.watch(routes.app + 'images/**/*.{gif,svg,jpg,png}', browserSync.reload); //Images
-  gulp.watch(routes.app + 'fonts/**/*.{svg,eot,ttf,woff,woff2}', browserSync.reload); //Fonts
+  gulp.watch( routes.src + routes.stylus +'**/*.styl', {cwd:'./'} ,  ['css', 'csslint']); //Stylus
+  gulp.watch([routes.src + routes.views + '*.pug', routes.src + routes.templates + '**/*.pug'], {cwd:'./'}, ['views']); //Pug
+  gulp.watch('publication/js/**/*.js', {cwd:'./'}, browserSync.reload);
+  gulp.watch(routes.app + 'images/**/*.{gif,svg,jpg,png}', {cwd:'./'}, browserSync.reload); //Images
+  gulp.watch(routes.app + 'fonts/**/*.{svg,eot,ttf,woff,woff2}', {cwd:'./'}, browserSync.reload); //Fonts
 
 });
 
