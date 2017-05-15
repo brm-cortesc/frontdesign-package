@@ -6,8 +6,9 @@ Este es un esfuerzo para que todos los diseñadores o personas que deban trabaja
 - [NodeJS](https://nodejs.org/) 0.10.*
 - [GulpJS](http://gulpjs.com/)
 - Snippets brm
-- Leer [Manual Pug](https://docs.google.com/a/brm.com.co/presentation/d/18GzVbLxmasYLi2GetJxAgoBe55L7_c0Bi1GHi6OoO0o/)
+- Leer [Manual Pug](https://docs.google.com/presentation/d/1C8RBX2Dlsb3UtCsBg5teX3bROmCqHlG_dKf2d6Rpvl4/)
 - Leer [Manual SMACSS](https://docs.google.com/a/brm.com.co/presentation/d/18GzVbLxmasYLi2GetJxAgoBe55L7_c0Bi1GHi6OoO0o/)
+- Leer [Bootstrap v 3.3.7 with Stylus](https://docs.google.com/presentation/d/1pLtMWlq4TZcTz2gsjLVoUZN75H9F-fF0BcvwAfPVzyo/)
 
 Si no tiene instaladas estas herramientas en tu equipo busca apoyo en Help Desk.
 
