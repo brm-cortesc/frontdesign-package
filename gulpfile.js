@@ -158,6 +158,7 @@ gulp.task('browserSync',  () =>{
             res.writeHead(302, {
                 "location": "404.html"
             });
+            res.end();
         });
     });
 
