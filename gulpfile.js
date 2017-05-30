@@ -149,12 +149,19 @@ gulp.task('views',  () =>{
 //Tarea base de browsersync para crear el servidor
 gulp.task('browserSync',  () =>{
   browserSync.init({
-    server: {
-      baseDir: routes.app
+      server: {
+        baseDir: routes.app
+      },
     },
-  })
-});
+    function (err, bs) {
+        bs.addMiddleware("*", function (req, res) {
+            res.writeHead(302, {
+                "location": "404.html"
+            });
+        });
+    });
 
+});
 gulp.task('limpiar', (done) =>{
   return cache.clearAll(done);
 });
