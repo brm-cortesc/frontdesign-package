@@ -153,14 +153,14 @@ gulp.task('browserSync',  () =>{
         baseDir: routes.app
       },
     },
-    function (err, bs) {
-        bs.addMiddleware("*", function (req, res) {
-            res.writeHead(302, {
-                "location": "404.html"
-            });
-            res.end();
-        });
-    });
+    // function (err, bs) {
+    //     bs.addMiddleware("*", function (req, res) {
+    //         res.writeHead(302, {
+    //             "location": "404.html"
+    //         });
+    //         res.end();
+    //     });
+    // });
 
 });
 gulp.task('limpiar', (done) =>{
