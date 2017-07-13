@@ -5,12 +5,15 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "watch": "gulp watch --debug",
-    "finalizar": "gulp css && gulp minicss && gulp views && gulp libs &&  rm publication/**/concat.**.** && rm -R publication/maps && gulp limpiar"
+    "start": "gulp watch --debug",
+    "js:watch": "gulp js:watch",
+    "finalizar": "rm publication/*.html && rm publication/css/style.css && mv publication/js/libs/ publication/ && rm publication/js/*.js && mv publication/libs publication/js && gulp libs &&     gulp css && gulp minicss && gulp js && gulp js:ugly && gulp views && rm publication/**/concat.**.** && rm publication/css/style.css &&rm -R publication/maps && gulp limpiar "
   },
   "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
     "browser-sync": "^2.15.0",
     "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
     "gulp-cache": "^0.4.5",
     "gulp-concat": "^2.6.0",
     "gulp-data": "^1.2.1",

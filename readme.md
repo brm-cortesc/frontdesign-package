@@ -25,21 +25,92 @@ npm install
 
 ## Directorios del proyecto
 
-**src** - Es el directorio en donde están los archivos source de preprocesadores (Pug, Stylus, Coffescript)
+**src** - Es el directorio en donde están los archivos source de preprocesadores (Pug, Stylus, JS:ES5)
 
 
 **publication** - Es el directorio que se entrega al desarrollador para subir al servidor
 
 Después de instalar correctamente cada módulo abra los archivos **package.json** y **frontend.jquery.json** y reemplace los datos con los de su proyecto.
 
-Luego, desde la terminal para trabajar con sus archivos sin minificar ejecute el comando:
+
+## Tareas
+
+### Principales
 
 ```
-npm run watch
+npm start
 ```
+Se crea  http://localhost:3000/ donde podrá ver el corte, css y js que va generando y la tarea se queda escuchando cambios en los archivos para refrescar automaticamente el navegador.
 
-Cuando termine su proyecto antes de entregarlo debe ejecutar el siguiente comando:
 
 ```
 npm run finalizar
 ```
+
+Genera archivos compilados y el html con los respectivos archivos vinculados
+
+```
+npm run js:watch
+```
+
+Escucha únicamente archivos de JS:ES5, los compila a ES4 y los minifica
+
+
+
+### Secundarias / individuales
+
+Estas mismas tareas se corren al ejecutar las tareas `npm start`, `npm run finalizar` y `npm run js:watch` 
+
+
+```
+gulp libs
+```
+Genera un archivo **libs.min.js** que contiene los plugins/frameworks que utiliza en el proyecto, estos archivos se agregan en el arreglo **jsLibs** en el **gulpfile.js**
+
+```
+gulp css
+```
+Procesa archivos .styl a .css usando nib para generar soporte con propiedades css3 (las nuevas propiedades como flex & calc aún no se da soporte)
+
+```
+gulp csslint
+```
+Evalua archivos .styl para para reportar errores de sintaxis
+
+
+```
+gulp minicss
+```
+Recoge en orden alfabético los archivos .css en la carpeta publication/css y genera un archivo minificado de css
+
+
+```
+gulp views
+```
+Procesa archivos .pug a .html
+
+
+```
+gulp watch
+```
+Crea http://localhost:3000/ que se escucha cambios en los archivos para refrescar automaticamente el navegador corriendo las tareas de views, css, csslint, js
+
+
+```
+gulp js:watch
+```
+Escucha y procesa archivos JS sintaxis ES5 a JS sintaxis ES4 y los genera minificados.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

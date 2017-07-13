@@ -10,8 +10,9 @@ const gulp        = require('gulp'),
       stylus      = require('gulp-stylus'),
       nib         = require('nib'),
       stylint     = require('gulp-stylint'),
-      path        = require('path'),
+      path        = require('path'),      
       cache       = require('gulp-cache'),
+      babel       = require('gulp-babel'),
       purify      = require('gulp-purifycss'),
       pug         = require('gulp-pug'),
       plumber     = require('gulp-plumber'),      
@@ -30,6 +31,7 @@ const routes = {
   stylus: 'stylus/',
   views: 'views/',
   templates: 'templates/',
+  es5: 'es5/',
   js: 'js/'
 };
 
@@ -59,9 +61,6 @@ const banner = ['/**',
 const jsLibs = [
   routes.app + routes.js +'libs/jquery.validate.js',
   routes.app + routes.js +'libs/bootstrap.min.js',
-  routes.app + routes.js +'libs/jquery.bxslider.min.js',
-  routes.app + routes.js +'libs/jquery.magnific-popup.min.js',
-  routes.app + routes.js +'libs/velocity.min.js'
 ];
 
 
@@ -146,6 +145,41 @@ gulp.task('views',  () =>{
     }))
 });
 
+
+//Babel transpailer
+gulp.task('js', ()=>{
+  return gulp.src(routes.src + routes.es5+ '*js')
+  .pipe(plumber())
+  .pipe(sourcemaps.init())
+  .pipe(babel({
+   'presets': ['es2015']
+  }))
+  .pipe(sourcemaps.write('../maps')) //creamos sourcemap aparte
+  .pipe(gulp.dest(routes.app + routes.js))
+  // .pipe(uglify())
+  .pipe(gulp.dest(routes.app + routes.js))
+  .pipe(browserSync.reload({
+      stream: true
+    }))
+
+});
+
+//js compiler
+gulp.task('js:ugly', ()=>{
+  return gulp.src([routes.app + routes.js + '*js', '!'+routes.app + routes.js + 'libs/**', '!'+routes.app + routes.js + 'libs.min.js' ])
+  .pipe(uglify())
+  .pipe(gulp.dest(routes.app + routes.js))
+
+});
+
+
+
+
+gulp.task('limpiar', (done) =>{
+  return cache.clearAll(done);
+});
+
+
 //Tarea base de browsersync para crear el servidor
 gulp.task('browserSync',  () =>{
   browserSync.init({
@@ -158,19 +192,24 @@ gulp.task('browserSync',  () =>{
 
 
 
-gulp.task('limpiar', (done) =>{
-  return cache.clearAll(done);
-});
-
-
 //tarea que observa cambios para recargar el navegador
-gulp.task('watch', ['browserSync', 'views', 'css', 'csslint'],  () =>{
+gulp.task('watch', ['browserSync', 'views', 'css', 'csslint', 'js'],  () =>{
 
   gulp.watch( routes.src + routes.stylus +'**/*.styl', {cwd:'./'} ,  ['css', 'csslint']); //Stylus
   gulp.watch([routes.src + routes.views + '*.pug', routes.src + routes.templates + '**/*.pug'], {cwd:'./'}, ['views']); //Pug
   gulp.watch('publication/js/**/*.js', {cwd:'./'}, browserSync.reload);
+  gulp.watch([routes.src + routes.es5 + '*.js'], {cwd:'./'} ,   ['js']); //JS ES5
   gulp.watch(routes.app + 'images/**/*.{gif,svg,jpg,png}', {cwd:'./'}, browserSync.reload); //Images
   gulp.watch(routes.app + 'fonts/**/*.{svg,eot,ttf,woff,woff2}', {cwd:'./'}, browserSync.reload); //Fonts
 
 });
+
+
+//watch para babelJS y uglify de JS
+gulp.task('js:watch', ['js','js:ugly'], ()=>{
+  gulp.watch([routes.src + routes.es5 + '*.js'], ['js']); //JS ES5
+  gulp.watch([routes.app + routes.js + '*.js'], ['js:ugly']); //JS MINI
+
+});
+
 
