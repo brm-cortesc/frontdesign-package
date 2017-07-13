@@ -10,7 +10,7 @@ Este es un esfuerzo para que todos los diseñadores o personas que deban trabaja
 - Leer [Manual SMACSS](https://docs.google.com/a/brm.com.co/presentation/d/18GzVbLxmasYLi2GetJxAgoBe55L7_c0Bi1GHi6OoO0o/)
 - Leer [Bootstrap v 3.3.7 with Stylus](https://docs.google.com/presentation/d/1pLtMWlq4TZcTz2gsjLVoUZN75H9F-fF0BcvwAfPVzyo/)
 
-Si no tiene instaladas estas herramientas en tu equipo busca apoyo en Help Desk.
+Si no tiene instaladas estas herramientas en su equipo busque apoyo en Help Desk.
 
 ## Instalación
 - Lo primero que debe hacer es clonar este repositorio en su equipo para poder realizar las pruebas localmente.
@@ -30,7 +30,7 @@ npm install
 
 **publication** - Es el directorio que se entrega al desarrollador para subir al servidor
 
-Después de instalar correctamente cada módulo abra los archivos **package.json** y **frontend.jquery.json** y reemplace los datos con los de su proyecto.
+Después de instalar correctamente cada módulo abra los archivos **package.json** y **frontend.json** y reemplace los datos con los de su proyecto.
 
 
 ## Tareas

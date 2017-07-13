@@ -38,9 +38,5 @@
     "url": "https://github.com/brm-cortesc/frontdesign-package"
   },
   "author": "Cristian Cortés",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/brm-cortesc/frontdesign-package/issues"
-  },
-  "homepage": "https://github.com/brm-cortesc/frontdesign-package"
+  "license": "MIT"
 }
