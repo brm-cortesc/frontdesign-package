@@ -26,11 +26,14 @@ npm install
 ## Directorios del proyecto
 
 **src** - Es el directorio en donde están los archivos source de preprocesadores (Pug, Stylus, JS:ES5)
-**src/es5** - Archivos JS:ES5
-**src/stylus** - Archivos .styl que compilan a .css
-**src/templates** - Archivos .pug con los que se arman las etiquetas base del proyecto: head, body, metatags, footer, header,menu, etc.
-**src/views** - Archivos .pug que serán de cada interna que tendrá el proyecto: index/home registro, login, contenido, etc.
 
+**src/es5** - Archivos JS:ES5
+
+**src/stylus** - Archivos .styl que compilan a .css
+
+**src/templates** - Archivos .pug con los que se arman las etiquetas base del proyecto: head, body, metatags, footer, header,menu, etc.
+
+**src/views** - Archivos .pug que serán de cada interna que tendrá el proyecto: index/home registro, login, contenido, etc.
 
 **publication** - Es el directorio que se entrega al desarrollador para subir al servidor
 
