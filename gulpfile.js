@@ -31,7 +31,7 @@ const routes = {
   stylus: 'stylus/',
   views: 'views/',
   templates: 'templates/',
-  es5: 'es5/',
+  es6: 'es6/',
   js: 'js/'
 };
 
@@ -148,7 +148,7 @@ gulp.task('views',  () =>{
 
 //Babel transpailer
 gulp.task('js', ()=>{
-  return gulp.src(routes.src + routes.es5+ '*js')
+  return gulp.src(routes.src + routes.es6+ '*js')
   .pipe(plumber())
   .pipe(sourcemaps.init())
   .pipe(babel({
@@ -198,7 +198,7 @@ gulp.task('watch', ['browserSync', 'views', 'css', 'csslint', 'js'],  () =>{
   gulp.watch( routes.src + routes.stylus +'**/*.styl', {cwd:'./'} ,  ['css', 'csslint']); //Stylus
   gulp.watch([routes.src + routes.views + '*.pug', routes.src + routes.templates + '**/*.pug'], {cwd:'./'}, ['views']); //Pug
   gulp.watch('publication/js/**/*.js', {cwd:'./'}, browserSync.reload);
-  gulp.watch([routes.src + routes.es5 + '*.js'], {cwd:'./'} ,   ['js']); //JS ES5
+  gulp.watch([routes.src + routes.es6 + '*.js'], {cwd:'./'} ,   ['js']); //JS ES6
   gulp.watch(routes.app + 'images/**/*.{gif,svg,jpg,png}', {cwd:'./'}, browserSync.reload); //Images
   gulp.watch(routes.app + 'fonts/**/*.{svg,eot,ttf,woff,woff2}', {cwd:'./'}, browserSync.reload); //Fonts
 
@@ -207,7 +207,7 @@ gulp.task('watch', ['browserSync', 'views', 'css', 'csslint', 'js'],  () =>{
 
 //watch para babelJS y uglify de JS
 gulp.task('js:watch', ['js','js:ugly'], ()=>{
-  gulp.watch([routes.src + routes.es5 + '*.js'], ['js']); //JS ES5
+  gulp.watch([routes.src + routes.es6 + '*.js'], ['js']); //JS ES6
   gulp.watch([routes.app + routes.js + '*.js'], ['js:ugly']); //JS MINI
 
 });
