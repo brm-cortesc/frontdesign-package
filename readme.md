@@ -25,9 +25,9 @@ npm install
 
 ## Directorios del proyecto
 
-**src** - Es el directorio en donde están los archivos source de preprocesadores (Pug, Stylus, JS:ES5)
+**src** - Es el directorio en donde están los archivos source de preprocesadores (Pug, Stylus, JS:ES6)
 
-**src/es5** - Archivos JS:ES5
+**src/es6** - Archivos JS:ES6
 
 **src/stylus** - Archivos .styl que compilan a .css
 
@@ -60,7 +60,7 @@ Genera archivos compilados y el html con los respectivos archivos vinculados
 npm run js:watch
 ```
 
-Escucha únicamente archivos de JS:ES5, los compila a ES4 y los minifica
+Escucha únicamente archivos de JS:ES6, los compila a ES4 y los minifica
 
 
 
@@ -106,4 +106,4 @@ Crea http://localhost:3000/ que se escucha cambios en los archivos para refresca
 ```
 gulp js:watch
 ```
-Escucha y procesa archivos JS sintaxis ES5 a JS sintaxis ES4 y los genera minificados.
+Escucha y procesa archivos JS sintaxis ES6 a JS sintaxis ES4 y los genera minificados.
