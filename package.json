@@ -32,7 +32,9 @@
   },
   "description": "![Manual de supervivencia frontend](http://abraham.brm.com.co/fabricaDeCajas/zip/logo-manual-frontend.jpg?12234 \"Manual de supervivencia frontend en brm\")",
   "main": "gulpfile.js",
-  "dependencies": {},
+  "dependencies": {
+    "babel-polyfill": "^6.23.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/brm-cortesc/frontdesign-package"
