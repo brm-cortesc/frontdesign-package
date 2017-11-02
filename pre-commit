@@ -1,0 +1,138 @@
+#!/bin/bash
+#
+
+
+PATH=$PATH:/usr/local/bin:/usr/local/sbin
+COL_ERR="\033[31;1;1m"
+COL_WARN="\033[33;1;1m"
+COL_LOG="\033[34;1;1m"
+
+# # # git stash -q --keep-index
+# echo 'Validando que stylus se compilen correctamente'
+
+# gulp css
+
+# # # Guardamos la variable del resultado de gulp
+# RESULT1=$?
+
+# # # git stash pop -q
+
+# # # Si la tarea de gulp bota error se termina la tarea y no se ejecuta el commit
+# [ $RESULT1 -ne 0 ] && echo 'no se pudo hacer commit, stylus presenta errores' && exit 1
+
+echo -e $COL_LOG'::----------------------::'
+echo -e $COL_LOG'::----------------------::'
+echo -e $COL_LOG'::----------------------::'
+echo -e $COL_LOG'Validando arquitectura CSS'
+echo -e $COL_LOG'::----------------------::'
+echo -e $COL_LOG'::----------------------::'
+echo -e $COL_LOG'::----------------------::'
+
+# funcion para ejecutar tarea de revision de arquitectura
+function callLint(){
+    gulp csslint
+}
+
+
+
+# recogemos el log de gulp para poder validar strings
+result=$(callLint)
+
+OIFS=$IFS
+IFS="..."
+oli=$result
+
+LISTW=0
+LISTE=0
+ERRU="Error:"
+WARN="Warning:"
+
+
+
+# contamos alertas
+for w in $oli
+
+do
+    if echo "$w" | grep -q "$WARN"; then
+
+        echo $w
+        
+        let LISTW=${LISTW}+1    
+    fi
+
+
+done
+
+# contamos errores
+for x in $oli
+
+do
+    echo $oli
+    if echo "$x" | grep -q "$ERRU"; then
+
+        echo $x
+        
+        let LISTE=${LISTE}+1    
+    fi
+
+
+done
+
+
+# Valida que existan alerts para no dejar hacer commit
+
+if [ $LISTW -gt 0 ]; then 
+    echo -e "\a" $COL_WARN'no se pudo hacer commit, hay alertas en el css' && exit 1
+
+fi
+
+# Valida que existan errores para no dejar hacer commit
+if [ $LISTE -gt 0 ]; then 
+    echo -e "\a" $COL_ERR'no se pudo hacer commit, hay errores en el css' && exit 1
+
+
+fi
+
+
+# echo '::----------------------::'
+# echo '::----------------------::'
+# echo '::----------------------::'
+# echo ':Validando assets finales:'
+# echo '::----------------------::'
+# echo '::----------------------::'
+# echo '::----------------------::'
+
+
+# indexApp=cat publication/index.html
+# pal='js/libs.min.js'
+
+# # buscamos libs
+# for z in $indexApp
+
+# do
+#     if echo "$z" | grep -q "$pal"; then
+
+#         echo 'hola ' $z
+    
+#     fi
+
+
+# done
+
+
+# exit
+
+
+
+echo -e $COL_LOG'::----------------------::'
+echo -e $COL_LOG'::----------------------::'
+echo -e $COL_LOG'::----------------------::'
+echo -e $COL_LOG'::---------Done---------::'
+echo -e $COL_LOG'::----------------------::'
+echo -e $COL_LOG'::----------------------::'
+echo -e $COL_LOG'::----------------------::'
+
+
+# Se ejecuta el commit si todo esta orden
+exit 0
+

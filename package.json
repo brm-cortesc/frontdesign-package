@@ -5,9 +5,10 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
+    "preinstall": "mv pre-commit .git/hooks/",
     "start": "gulp watch --debug",
     "js:watch": "gulp js:watch",
-    "finalizar": "rm publication/*.html && rm publication/css/style.css && mv publication/js/libs/ publication/ && rm publication/js/*.js && mv publication/libs publication/js && gulp libs &&     gulp css && gulp minicss && gulp js && gulp js:ugly && gulp views && rm publication/**/concat.**.** && rm publication/css/style.css &&rm -R publication/maps && gulp limpiar "
+    "finalizar": "rm publication/*.html && rm publication/css/style.css && mv publication/js/libs/ publication/ && rm publication/js/*.js && mv publication/libs publication/js && gulp libs && gulp css && gulp minicss && gulp js && gulp js:ugly && gulp views && rm publication/**/concat.**.** && rm publication/css/style.css &&rm -R publication/maps && gulp limpiar"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",
