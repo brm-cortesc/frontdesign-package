@@ -102,14 +102,28 @@ gulp.task('csslint', () =>{
   return gulp.src([routes.src + routes.stylus + '**/*.styl', '!'+routes.src + routes.stylus + 'bootstrap/**/*.**' ])
         .pipe(stylint({
           rules:{
-            'leadingZero': 'never',
-            'commentSpace': 'never'
+            'sortOrder': 'alphabetical',
+            'namingConvention': {
+                'expect': 'lowercase-dash',
+                'error': true
+            },
+            'leadingZero': false,
+            'commentSpace': false,
+            'valid':{
+              'expect':true,
+              'error':true
+            },
+            'groupOutputByFile': true,
+            'namingConventionStrict': true,
+            'prefixVarsWithDollar': 'always'
+
           }
 
         }))
-        // .pipe(stylint.reporter({
-        //   verbose: true
-        //  }))
+        //.pipe(plumber())
+        .pipe(stylint.reporter({
+          verbose: true
+         }))
 
 });
 
