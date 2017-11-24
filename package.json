@@ -5,37 +5,36 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "preinstall": "mv pre-commit .git/hooks/",
+    "preinstall": "cp pre-commit .git/hooks/ && chmod -R 777 .git/hooks/pre-commit",
     "start": "gulp watch --debug",
     "js:watch": "gulp js:watch",
     "finalizar": "rm publication/*.html && rm publication/css/style.css && mv publication/js/libs/ publication/ && rm publication/js/*.js && mv publication/libs publication/js && gulp libs && gulp css && gulp minicss && gulp js && gulp js:ugly && gulp views && rm publication/**/concat.**.** && rm publication/css/style.css &&rm -R publication/maps && gulp limpiar"
   },
   "devDependencies": {
-    "babel-preset-es2015": "^6.24.1",
-    "browser-sync": "^2.15.0",
+    "babel-core": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "browser-sync": "^2.18.13",
     "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-cache": "^0.4.5",
-    "gulp-concat": "^2.6.0",
+    "gulp-babel": "^7.0.0",
+    "gulp-cache": "^1.0.1",
+    "gulp-concat": "^2.6.1",
     "gulp-data": "^1.2.1",
-    "gulp-header": "^1.8.8",
+    "gulp-header": "^1.8.9",
     "gulp-minify-css": "^1.2.4",
     "gulp-plumber": "^1.1.0",
-    "gulp-pug": "^3.0.4",
-    "gulp-purifycss": "^0.2.0",
+    "gulp-pug": "^3.3.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sourcemaps": "^1.6.0",
+    "gulp-sourcemaps": "^2.6.1",
     "gulp-stylint": "^4.0.0",
-    "gulp-stylus": "^2.5.0",
-    "gulp-uglify": "^2.0.0",
+    "gulp-stylus": "^2.6.0",
+    "gulp-uglify": "^3.0.0",
     "nib": "^1.1.2",
-    "yargs": "^5.0.0"
+    "yargs": "^6.4.0"
   },
   "description": "![Manual de supervivencia frontend](http://abraham.brm.com.co/fabricaDeCajas/zip/logo-manual-frontend.jpg?12234 \"Manual de supervivencia frontend en brm\")",
   "main": "gulpfile.js",
-  "dependencies": {
-    "babel-polyfill": "^6.23.0"
-  },
+  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/brm-cortesc/frontdesign-package"

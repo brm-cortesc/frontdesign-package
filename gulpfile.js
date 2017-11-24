@@ -13,7 +13,6 @@ const gulp        = require('gulp'),
       path        = require('path'),      
       cache       = require('gulp-cache'),
       babel       = require('gulp-babel'),
-      purify      = require('gulp-purifycss'),
       pug         = require('gulp-pug'),
       plumber     = require('gulp-plumber'),      
       argv        = require('yargs').argv;
@@ -166,7 +165,7 @@ gulp.task('js', ()=>{
   .pipe(plumber())
   .pipe(sourcemaps.init())
   .pipe(babel({
-   'presets': ['es2015']
+   'presets': ['env']
   }))
   .pipe(sourcemaps.write('../maps')) //creamos sourcemap aparte
   .pipe(gulp.dest(routes.app + routes.js))
