@@ -1,0 +1,1 @@
+# Directorio para las imgs del proyecto

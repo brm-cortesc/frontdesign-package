@@ -1,0 +1,96 @@
+{
+  "modules": {
+    "byIdentifier": {
+      "node_modules/babel-loader/lib/index.js!src/index.js": "./src/index.js",
+      "src/main.styl": "./src/main.styl"
+    },
+    "usedIds": {
+      "./src/index.js": "./src/index.js",
+      "./src/main.styl": "./src/main.styl"
+    }
+  },
+  "chunks": {
+    "byName": {
+      "app": 0
+    },
+    "byBlocks": {},
+    "usedIds": {
+      "0": 0
+    }
+  },
+  "html-webpack-plugin for \"index.html\"": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/pug-loader/index.js!src/index.pug": "./node_modules/pug-loader/index.js!./src/index.pug",
+          "node_modules/pug-loader/stringify.loader.js!node_modules/html-webpack-template-pug/mixins.pug": "./node_modules/pug-loader/stringify.loader.js!./node_modules/html-webpack-template-pug/mixins.pug",
+          "node_modules/pug-runtime/index.js": "./node_modules/pug-runtime/index.js",
+          "external \"fs\"": "fs"
+        },
+        "usedIds": {
+          "./node_modules/pug-loader/index.js!./src/index.pug": "./node_modules/pug-loader/index.js!./src/index.pug",
+          "./node_modules/pug-loader/stringify.loader.js!./node_modules/html-webpack-template-pug/mixins.pug": "./node_modules/pug-loader/stringify.loader.js!./node_modules/html-webpack-template-pug/mixins.pug",
+          "./node_modules/pug-runtime/index.js": "./node_modules/pug-runtime/index.js",
+          "fs": "fs"
+        }
+      },
+      "chunks": {
+        "byName": {},
+        "byBlocks": {},
+        "usedIds": {
+          "0": 0
+        }
+      }
+    }
+  ],
+  "html-webpack-plugin for \"filename\"": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/pug-loader/index.js!src/index.pug": "./node_modules/pug-loader/index.js!./src/index.pug",
+          "node_modules/pug-loader/stringify.loader.js!node_modules/html-webpack-template-pug/mixins.pug": "./node_modules/pug-loader/stringify.loader.js!./node_modules/html-webpack-template-pug/mixins.pug",
+          "node_modules/pug-runtime/index.js": "./node_modules/pug-runtime/index.js",
+          "external \"fs\"": "fs"
+        },
+        "usedIds": {
+          "./node_modules/pug-loader/index.js!./src/index.pug": "./node_modules/pug-loader/index.js!./src/index.pug",
+          "./node_modules/pug-loader/stringify.loader.js!./node_modules/html-webpack-template-pug/mixins.pug": "./node_modules/pug-loader/stringify.loader.js!./node_modules/html-webpack-template-pug/mixins.pug",
+          "./node_modules/pug-runtime/index.js": "./node_modules/pug-runtime/index.js",
+          "fs": "fs"
+        }
+      },
+      "chunks": {
+        "byName": {},
+        "byBlocks": {},
+        "usedIds": {
+          "0": 0
+        }
+      }
+    }
+  ],
+  "html-webpack-plugin for \".html\"": [
+    {
+      "modules": {
+        "byIdentifier": {
+          "node_modules/pug-loader/index.js!src/index.pug": "./node_modules/pug-loader/index.js!./src/index.pug",
+          "node_modules/pug-loader/stringify.loader.js!node_modules/html-webpack-template-pug/mixins.pug": "./node_modules/pug-loader/stringify.loader.js!./node_modules/html-webpack-template-pug/mixins.pug",
+          "node_modules/pug-runtime/index.js": "./node_modules/pug-runtime/index.js",
+          "external \"fs\"": "fs"
+        },
+        "usedIds": {
+          "./node_modules/pug-loader/index.js!./src/index.pug": "./node_modules/pug-loader/index.js!./src/index.pug",
+          "./node_modules/pug-loader/stringify.loader.js!./node_modules/html-webpack-template-pug/mixins.pug": "./node_modules/pug-loader/stringify.loader.js!./node_modules/html-webpack-template-pug/mixins.pug",
+          "./node_modules/pug-runtime/index.js": "./node_modules/pug-runtime/index.js",
+          "fs": "fs"
+        }
+      },
+      "chunks": {
+        "byName": {},
+        "byBlocks": {},
+        "usedIds": {
+          "0": 0
+        }
+      }
+    }
+  ]
+}
