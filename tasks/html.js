@@ -3,6 +3,7 @@ const gulp        = require('gulp'),
       concat      = require('gulp-concat'), 
       rename      = require('gulp-rename'),
       dataJson    = require('gulp-data'),
+      notify     = require('gulp-notify'),
       header      = require('gulp-header'),
       sourcemaps  = require('gulp-sourcemaps'),
       path        = require('path'),      
@@ -42,7 +43,7 @@ gulp.task('views',  () =>{
         
       };
     }))
-  .pipe(plumber())
+  .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
   .pipe(pug({
     pretty: true
     }))

@@ -4,6 +4,7 @@ const gulp       = require('gulp'),
       rename     = require('gulp-rename'),
       minifyCSS  = require('gulp-minify-css'),
       header     = require('gulp-header'),
+      notify     = require('gulp-notify'),
       sourcemaps = require('gulp-sourcemaps'),
       stylus     = require('gulp-stylus'),
       nib        = require('nib'),
@@ -31,7 +32,7 @@ const banner = ['/**',
 gulp.task('css',  () =>{
   return gulp.src(data.app + data.stylus + 'main.styl')
   .pipe(header(banner, { pkg : data } ))
-  .pipe(plumber())
+  .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
   .pipe(sourcemaps.init()) //cargamos tarea de sourcemaps
   .pipe(stylus({ //iniciamos stylus
     use: nib(), // cargamos nib para uso de css3
@@ -71,10 +72,10 @@ gulp.task('csslint', () =>{
           }
 
         }))
-        //.pipe(plumber())
+        //.pipe(plumber())notify('<%= options.message %>')
         .pipe(stylint.reporter({
-          verbose: true
-         }))
+          logger: notify.onError()
+        }))
 
 });
 

@@ -4,6 +4,7 @@ const gulp        = require('gulp'),
       rename      = require('gulp-rename'),
       uglify      = require('gulp-uglify'),
       header      = require('gulp-header'),
+      notify     = require('gulp-notify'),
       sourcemaps  = require('gulp-sourcemaps'),
       path        = require('path'),      
       babel       = require('gulp-babel'),
@@ -29,7 +30,7 @@ const banner = ['/**',
 //Babel transpailer
 gulp.task('js', ()=>{
   return gulp.src(data.app + data.babel+ '*js')
-  .pipe(plumber())
+  .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
   .pipe(sourcemaps.init())
   .pipe(babel({
    'presets': ['env']

@@ -22,7 +22,7 @@ gulp.task('build', (cb)=>{
 	  		'assets:img',
 	  		'assets:fonts',
 	  		cb
-		)
+		);
 		
 	}
 
