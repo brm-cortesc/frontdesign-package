@@ -17,7 +17,7 @@ gulp.task('clean:maps', ()=>{
 
 gulp.task('clean', ()=>{
 	
-	del(build).then(paths =>{
+	return del(build).then(paths =>{
 		console.log('se borraron los archivos carpetas:\n', paths.join('\n'));
 	});
 

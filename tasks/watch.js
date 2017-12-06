@@ -7,10 +7,11 @@ const gulp        = require('gulp'),
 const data = require('./../frontend.json');
 
 const imagesPath = data.app + data.assets + 'images/**/*.{gif,svg,jpg,png}';
-const fontPath = data.app + data.assets + 'fonts/**/*.{svg,eot,ttf,woff,woff2}'
+const fontPath = data.app + data.assets + 'fonts/**/*.{svg,eot,ttf,woff,woff2}';
+const libsPath = data.app + data.assets + 'libs/**/*';
 
 
-gulp.task('watch', ['browserSync'], ()=>{
+gulp.task('watch', ['browserSync', 'assets:img', 'assets:fonts', 'assets:js'], ()=>{
 
   watch(data.app + data.stylus, ()=>{
   	gulp.start('css', 'csslint')
@@ -32,6 +33,11 @@ gulp.task('watch', ['browserSync'], ()=>{
 
   watch(fontPath, ()=>{
   	gulp.start('assets:fonts');
+
+  });
+
+  watch(libsPath, ()=>{
+    gulp.start('assets:js');
 
   });
 
