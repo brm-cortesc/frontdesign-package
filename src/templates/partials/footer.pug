@@ -10,10 +10,14 @@ footer.container-fluid
 
 //Scripts
 //-Estos son los scripts que van en todos los htmls del desarrollo
-if debug == true
-	script(src='js/libs/jquery.js')
-	script(src='js/libs/bootstrap.min.js')
+if !production
+	script(src='assets/js/libs/jquery.js')
+	//-Este arreglo imprime todos los js que se declaren en arreglo jsLibs en gulpfile.js:70
+	-for(x =0; x < libs.length; x++)
+		script(src=libs[x])
+
 
 else
-	script(src='js/libs/jquery.js')
-	script(src="js/libs.min.js")
+	script(src='assets/js/libs/jquery.js')
+	script(src='assets/js/libs.min.js')
+	//- script(src='js/gv.validate.js')
