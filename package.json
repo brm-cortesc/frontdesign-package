@@ -7,6 +7,7 @@
   "scripts": {
     "preinstall": "cp pre-commit .git/hooks/ && chmod -R 777 .git/hooks/pre-commit",
     "report": "gulp report:css && gulp report:js && gulp report:img",
+    "start": "gulp watch",
     "build": "gulp build --production && npm run report "
   },
   "devDependencies": {

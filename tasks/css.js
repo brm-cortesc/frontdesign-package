@@ -50,7 +50,7 @@ gulp.task('css',  () =>{
 
 //tarea para ver errores en sintaxis & semantica de stylus
 gulp.task('csslint', () =>{
-  return gulp.src([data.app + data.stylus + '**/*.styl', '!'+data.app + data.stylus + 'bootstrap/**/*.**' ])
+  return gulp.src([data.app + data.stylus + '**/*.styl', '!'+data.app + data.stylus + 'bootstrap/**/*.**',  '!'+data.app + data.stylus + 'font-awesome-stylus/**/*.**'  ])
         .pipe(stylint({
           rules:{
             'sortOrder': 'alphabetical',
