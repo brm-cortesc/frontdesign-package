@@ -17,10 +17,12 @@ gulp.task('build', (cb)=>{
 	  		'css',
 	  		'minicss',
 	  		'js',
+	  		'js:ugly',
 	  		'libs',
 	  		'clean:maps',
 	  		'assets:img',
 	  		'assets:fonts',
+	  		'assets:js',
 	  		cb
 		);
 		

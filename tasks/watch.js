@@ -8,8 +8,8 @@ const data = require('./../frontend.json');
 
 const imagesPath = data.app + data.assets + 'images/**/*.{gif,svg,jpg,png}';
 const fontPath = data.app + data.assets + 'fonts/**/*.{svg,eot,ttf,woff,woff2}';
-const libsPath = data.app + data.assets + 'libs/**/*';
-const cssPath = data.app + data.assets + data.css;
+const libsPath = data.app + data.assets + data.js + 'libs/**/*';
+const cssPath = data.app + data.assets + data.css + '**/**';
 
 
 
@@ -43,7 +43,7 @@ gulp.task('watch', ['browserSync', 'assets:img', 'assets:fonts', 'assets:js', 'a
 
   });
 
-   watch(libsPath, ()=>{
+   watch(cssPath, ()=>{
     gulp.start('assets:css');
 
   });
