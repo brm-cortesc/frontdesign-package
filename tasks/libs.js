@@ -32,7 +32,7 @@ gulp.task('libs',  () =>{
     console.log('Las librerías que se van a minificar son:')
     console.log(libs)
      return gulp.src(libs)
-        .pipe(header(banner, { pkg : data } ))
+        // .pipe(header(banner, { pkg : data } ))
         .pipe(plumber())
         .pipe(concat('concat.libs.js'))
         .pipe(gulp.dest(data.build + data.assets + data.js))

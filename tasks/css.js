@@ -81,7 +81,7 @@ gulp.task('csslint', () =>{
 
 //Concatenar y minificar CSS
 gulp.task('minicss',  () =>{
-  return gulp.src([data.build + data.assets + data.css + '**/*.css', '!'+data.app + data.css +'/**/'+data.name+'.min.css'])
+  return gulp.src([data.build + data.assets + data.css + '**/*.css', '!'+data.build + data.assets + data.css +'/**/'+data.name+'.min.css'])
   .pipe(concat(data.name +'.min.css'))
   .pipe(minifyCSS())
   .pipe(gulp.dest(data.build + data.assets + data.css))

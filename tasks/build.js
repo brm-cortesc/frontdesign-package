@@ -13,6 +13,10 @@ gulp.task('build', (cb)=>{
 	if (production){
 		runSequence(
 			'clean',
+	  		'assets:img',
+	  		'assets:fonts',
+	  		'assets:js',
+	  		'assets:css',
 	  		'views',
 	  		'css',
 	  		'minicss',
@@ -20,9 +24,6 @@ gulp.task('build', (cb)=>{
 	  		'js:ugly',
 	  		'libs',
 	  		'clean:maps',
-	  		'assets:img',
-	  		'assets:fonts',
-	  		'assets:js',
 	  		cb
 		);
 		
